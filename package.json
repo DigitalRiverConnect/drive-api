@@ -1,0 +1,13 @@
+{
+  "name": "watch-service-backend-blueprint",
+  "version": "1.0.0",
+  "description": "Backend service for blueprint project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YenPu Chen",
+  "dependencies": {
+    "restify": "4.3.0"
+  }
+}
