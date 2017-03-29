@@ -8,7 +8,7 @@ var definitions = require('./resources/definitions')
 
 module.exports = {
   list: function(query) {
-    watchDefinitions = addPagination(watchDefinitions, query);
+    watchDefinitions = addLinks(watchDefinitions, query);
     watchDefinitions.entities['watch-definitions'] = entities.slice(query.offset, +query.offset + +query.max);
     return watchDefinitions
   },
@@ -63,14 +63,25 @@ var makeDefinition = function(body) {
   return definition;
 }
 
+var addLinks = function(watchDefinitions, query) {
+  watchDefinitions.links = new Links().getDefaultListLink();
+  watchDefinitions = addPagination(watchDefinitions, query);
+  return watchDefinitions;
+}
+
 var addPagination = function(watchDefinitions, query) {
   var total = entities.length;
   var pages = Math.ceil(total / query.max);
   var currentPage = (query.offset > 0) ? (query.offset / query.max) + 1 : 1;
   watchDefinitions.data = (new Pagination(total, pages, currentPage)).getPagination();
   for (var i = 1 ; i <= pages ; i++) {
-    watchDefinitions.links[`page-${i}`] = (new PageLink(i, query.max)).getPage();
+    watchDefinitions.links[`page-${i}`] = (new PageLink()).getPage(i, query.max);
   }
+
+  watchDefinitions.links[`first`] = (new PageLink()).getLink('first', 0, query.max);
+  watchDefinitions.links[`last`] = (new PageLink()).getLink('last', (pages - 1) * query.max, query.max);
+  if (pages != currentPage) watchDefinitions.links[`next`] = (new PageLink()).getLink('next', currentPage * query.max, query.max);
+  if (query.offset != 0) watchDefinitions.links[`prev`] = (new PageLink()).getLink('prev', (pages - 2) * query.max, query.max);
 
   return watchDefinitions;
 }

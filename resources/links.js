@@ -18,6 +18,28 @@ function Links(title) {
       }
     }
   }
+
+  this.getDefaultListLink = function(max) {
+    return {
+      "create": {
+        "rel": "create",
+        "href": `http://localhost:${port}/watch-definitions/creation.drive`,
+        "title": "Create"
+      },
+      "search": {
+        "rel": "search",
+        "href": `http://localhost:${port}/watch-definitions/search.drive`,
+        "title": "Search",
+        "method": "POST",
+        "type": "application/json",
+        "$ref": "#/definitions/SearchWatchDefinition"
+      },
+      "self": {
+        "rel": "self",
+        "href": `http://localhost:${port}/watch-definitions.drive?offset=0&max=${max}`
+      }
+    }
+  }
 }
 
 module.exports = Links
