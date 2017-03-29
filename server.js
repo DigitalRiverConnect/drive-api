@@ -43,7 +43,8 @@ function deleteWatchDefinition(req, res, next) {
 }
 
 function getWatchDefinition(req, res, next) {
-  res.send(service.get())
+  const definition = req.params.definition;
+  res.send(service.get(definition))
   next();
 }
 

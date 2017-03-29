@@ -4,16 +4,16 @@ var Links = require('./resources/links.js')
 var Pagination = require('./resources/pagination')
 var PageLink = require('./resources/page.link')
 var entities = require('./resources/entities')
+var definitions = require('./resources/definitions')
 
 module.exports = {
   list: function(query) {
     watchDefinitions = addPagination(watchDefinitions, query);
-    console.log(`offset: $offset, max: ${query.max}, offset+max: ${+query.offset + +query.max}`)
     watchDefinitions.entities = entities.slice(query.offset, +query.offset + +query.max);
     return watchDefinitions
   },
-  get: function() {
-
+  get: function(definition) {
+    return definitions[definition];
   },
   getCreationPage: function() {
     return creationPage;
@@ -46,10 +46,6 @@ module.exports = {
   },
   delete: function(definition) {
     entities = entities.filter(function (item) {
-      console.log(`item.title: ${item.title} - definition: ${definition}`);
-      if (item.title === definition) {
-        console.log("!!! equal !!!");
-      }
       return item.title !== definition;
     })
   }
