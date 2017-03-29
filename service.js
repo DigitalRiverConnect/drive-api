@@ -9,7 +9,7 @@ var definitions = require('./resources/definitions')
 module.exports = {
   list: function(query) {
     watchDefinitions = addPagination(watchDefinitions, query);
-    watchDefinitions.entities = entities.slice(query.offset, +query.offset + +query.max);
+    watchDefinitions.entities['watch-definitions'] = entities.slice(query.offset, +query.offset + +query.max);
     return watchDefinitions
   },
   get: function(definition) {
@@ -38,7 +38,7 @@ module.exports = {
 
     if (existDefinition.length === 1) {
       var index = entities.indexOf(existDefinition[0])
-      watchDefinitions.entities['watch-definitions'][index] = makeDefinition(body);
+      entities[index] = makeDefinition(body);
     }
     else {
       throw `${body.definition.name} doesn't exist`
