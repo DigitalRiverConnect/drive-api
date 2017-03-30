@@ -36,24 +36,24 @@ function updateWatchDefinition(req, res, next) {
 }
 
 function deleteWatchDefinition(req, res, next) {
-  const definition = req.params.definition;
-  service.delete(definition);
+  const name = req.params.name;
+  service.delete(name);
   res.send(service.list(defaultQuery));
   next();
 }
 
 function getWatchDefinition(req, res, next) {
-  const definition = req.params.definition;
-  res.send(service.get(definition))
+  const name = req.params.name;
+  res.send(service.get(name))
   next();
 }
 
 server.get('/watch-definitions.drive', watchDefinitions);
 server.get('/watch-definitions/creation.drive', creationPage);
-server.get('/watch-definitions/:definition', getWatchDefinition);
+server.get('/watch-definitions/:name', getWatchDefinition);
 server.post('/watch-definitions.drive', createWatchDefinition);
 server.put('/watch-definitions.drive', updateWatchDefinition);
-server.del('/watch-definitions/:definition', deleteWatchDefinition);
+server.del('/watch-definitions/:name', deleteWatchDefinition);
 
 server.listen(port, function() {
   console.log('%s listening at %s', server.name, server.url)

@@ -5,6 +5,7 @@ var Pagination = require('./resources/pagination')
 var PageLink = require('./resources/page.link')
 var entities = require('./resources/entities')
 var definitions = require('./resources/definitions')
+var schema = require('./resources/definition.schema')
 
 module.exports = {
   list: function(query) {
@@ -12,8 +13,12 @@ module.exports = {
     watchDefinitions.entities['watch-definitions'] = entities.slice(query.offset, +query.offset + +query.max);
     return watchDefinitions
   },
-  get: function(definition) {
-    return definitions[definition];
+  get: function(name) {
+    var definition = definitions[name];
+
+    // FIXME harcoded max = 10 should be fix
+    definition.links = ((new Links())).getWatchDefinitionLink(name, 10)
+    return definition;
   },
   getCreationPage: function() {
     return creationPage;
@@ -24,7 +29,8 @@ module.exports = {
     })
 
     if (existDefinition.length === 0) {
-      entities.push(makeDefinition(body));
+      entities.push(makeEntity(body));
+      definitions[body.definition.name] = makeDefinition(body);
     }
     else {
       throw `${body.definition.name} already exist`
@@ -33,30 +39,35 @@ module.exports = {
   },
   update: function(body) {
     var existDefinition = entities.filter(function (item) {
-      return item.title === body.definition.name
+      return item.title === body.definition.path
     })
 
     if (existDefinition.length === 1) {
       var index = entities.indexOf(existDefinition[0])
-      entities[index] = makeDefinition(body);
+      entities[index] = makeEntity(body);
+      definitions[body.definition.path] = makeDefinition(body);
     }
     else {
       throw `${body.definition.name} doesn't exist`
     }
   },
-  delete: function(definition) {
+  delete: function(name) {
     entities = entities.filter(function (item) {
-      return item.title !== definition;
+      return item.title !== name;
     })
   }
 
 }
 
-var makeDefinition = function(body) {
-  body.definition.path = body.definition.name;
+var makeEntity = function(body) {
+  if (body.definition.path === undefined || body.definition.path === null ||
+        body.definition.path === '') {
+    body.definition.path = body.definition.name;
+  }
+
   var definition = {
-    title: body.definition.name,
-    links: new Links(body.name).getLinks(),
+    title: body.definition.path,
+    links: new Links().getEntityLinks(body.definition.path),
     data: body.definition,
     $ref: '#/definitions/WatchDefinition'
   }
@@ -64,7 +75,7 @@ var makeDefinition = function(body) {
 }
 
 var addLinks = function(watchDefinitions, query) {
-  watchDefinitions.links = new Links().getDefaultListLink();
+  watchDefinitions.links = new Links().getListLink();
   watchDefinitions = addPagination(watchDefinitions, query);
   return watchDefinitions;
 }
@@ -84,4 +95,12 @@ var addPagination = function(watchDefinitions, query) {
   if (query.offset != 0) watchDefinitions.links[`prev`] = (new PageLink()).getLink('prev', (pages - 2) * query.max, query.max);
 
   return watchDefinitions;
+}
+
+var makeDefinition = function(body) {
+  return {
+    links: {},
+    data: body.definition,
+    schema: schema
+  };
 }

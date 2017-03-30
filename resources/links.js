@@ -4,22 +4,22 @@ var port = config.port
 function Links(title) {
   this.title = title;
 
-  this.getLinks = function() {
+  this.getEntityLinks = function(name) {
     return {
       "item": {
         "rel": "item",
-        "href": `http://localhost:${port}/watch-definitions/${title}`
+        "href": `http://localhost:${port}/watch-definitions/${name}`
       },
       "delete": {
         "rel": "delete",
-        "href": `http://localhost:${port}/watch-definitions/${title}`,
+        "href": `http://localhost:${port}/watch-definitions/${name}`,
         "title": "Delete",
         "method": "DELETE"
       }
     }
   }
 
-  this.getDefaultListLink = function(max) {
+  this.getListLink = function(max) {
     return {
       "create": {
         "rel": "create",
@@ -37,6 +37,34 @@ function Links(title) {
       "self": {
         "rel": "self",
         "href": `http://localhost:${port}/watch-definitions.drive?offset=0&max=${max}`
+      }
+    }
+  }
+
+  this.getWatchDefinitionLink = function(name, max) {
+    return {
+      "up": {
+        "rel": "up",
+        "href": `http://localhost:${port}/watch-definitions.drive?offset=0&max=${max}`,
+        "title": "Back to list"
+      },
+      "delete": {
+        "rel": "delete",
+        "href": `http://localhost:${port}/watch-definitions/${name}`,
+        "title": "Delete",
+        "method": "DELETE"
+      },
+      "edit": {
+        "rel": "edit",
+        "href": `http://localhost:${port}/watch-definitions.drive`,
+        "title": "Save",
+        "method": "PUT",
+        "type": "application/json",
+        "$ref": "#/definitions/CreateWatchDefinition"
+      },
+      "self": {
+        "rel": "self",
+        "href": `http://localhost:${port}/watch-definitions/${name}`
       }
     }
   }
