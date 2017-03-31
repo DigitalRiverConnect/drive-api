@@ -1,21 +1,8 @@
-var config = require('../config')
-var port = config.port
+var schema = require('./definition.schema')
 
-var entities = [
-  {
-    "title": "v1-bbod-availability",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-bbod-availability"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-bbod-availability",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+var definitions = {
+  'v1-bbod-availability': {
+    "links": {},
     "data": {
       "name": "BBOD Availability Monitoring and Alerting",
       "path": "v1-bbod-availability",
@@ -68,22 +55,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-bbod-decrease-traffic-sprike",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-bbod-decrease-traffic-sprike"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-bbod-decrease-traffic-sprike",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-bbod-decrease-traffic-sprike': {
+    "links": {},
     "data": {
       "name": "BBOD Decrease Traffic Spike",
       "path": "v1-bbod-decrease-traffic-sprike",
@@ -136,22 +111,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-ciscoctg-availability",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-ciscoctg-availability"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-ciscoctg-availability",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-ciscoctg-availability': {
+    "links": {},
     "data": {
       "name": "CISCOCTG Availability Monitoring and Alerting",
       "path": "v1-ciscoctg-availability",
@@ -203,22 +166,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-ciscoctg-decrease-traffic-sprike",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-ciscoctg-decrease-traffic-sprike"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-ciscoctg-decrease-traffic-sprike",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-ciscoctg-decrease-traffic-sprike': {
+    "links": {},
     "data": {
       "name": "CISCOCTG Decrease Traffic Spike",
       "path": "v1-ciscoctg-decrease-traffic-sprike",
@@ -271,22 +222,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "dispatch-errors-watch",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/dispatch-errors-watch"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/dispatch-errors-watch",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'dispatch-errors-watch': {
+    "links": {},
     "data": {
       "name": "Dispatch Errors Watch.",
       "path": "dispatch-errors-watch",
@@ -336,22 +275,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "dispatch-hosts-watch",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/dispatch-hosts-watch"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/dispatch-hosts-watch",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'dispatch-hosts-watch': {
+    "links": {},
     "data": {
       "name": "Dispatch Hosts Watch",
       "path": "dispatch-hosts-watch",
@@ -401,22 +328,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-electrol-availability",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-electrol-availability"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-electrol-availability",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-electrol-availability': {
+    "links": {},
     "data": {
       "name": "ELECTROL Availability Monitoring and Alerting",
       "path": "v1-electrol-availability",
@@ -468,22 +383,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-electrol-decrease-traffic-sprike",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-electrol-decrease-traffic-sprike"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-electrol-decrease-traffic-sprike",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-electrol-decrease-traffic-sprike': {
+    "links": {},
     "data": {
       "name": "ELECTROL Decrease Traffic Spike",
       "path": "v1-electrol-decrease-traffic-sprike",
@@ -536,22 +439,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-furlaeu-availability",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlaeu-availability"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlaeu-availability",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-furlaeu-availability': {
+    "links": {},
     "data": {
       "name": "FURLAEU Availability Monitoring and Alerting",
       "path": "v1-furlaeu-availability",
@@ -603,22 +494,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-furlaeu-decrease-traffic-sprike",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlaeu-decrease-traffic-sprike"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlaeu-decrease-traffic-sprike",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-furlaeu-decrease-traffic-sprike': {
+    "links": {},
     "data": {
       "name": "FURLAEU Decrease Traffic Spike",
       "path": "v1-furlaeu-decrease-traffic-sprike",
@@ -671,22 +550,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-furlajp-availability",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlajp-availability"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlajp-availability",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-furlajp-availability': {
+    "links": {},
     "data": {
       "name": "FURLAJP Availability Monitoring and Alerting",
       "path": "v1-furlajp-availability",
@@ -738,22 +605,10 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   },
-  {
-    "title": "v1-furlajp-decrease-traffic-sprike",
-    "links": {
-      "item": {
-        "rel": "item",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlajp-decrease-traffic-sprike"
-      },
-      "delete": {
-        "rel": "delete",
-        "href": "http://localhost:" + port + "/watch-definitions/v1-furlajp-decrease-traffic-sprike",
-        "title": "Delete",
-        "method": "DELETE"
-      }
-    },
+  'v1-furlajp-decrease-traffic-sprike': {
+    "links": {},
     "data": {
       "name": "FURLAJP Decrease Traffic Spike",
       "path": "v1-furlajp-decrease-traffic-sprike",
@@ -806,8 +661,8 @@ var entities = [
         }
       }
     },
-    "$ref": "#/definitions/WatchDefinition"
+    "schema": schema
   }
-]
+}
 
-module.exports = entities
+module.exports = definitions

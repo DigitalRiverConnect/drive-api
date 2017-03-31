@@ -3,40 +3,7 @@ var config = require('../config')
 var port = config.port
 
 var drive = {
-  "links": {
-    "next": {
-      "rel": "next",
-      "href": "http://localhost:" + port + "/watch-definitions.drive?offset=10&max=10",
-      "title": "Next"
-    },
-    "first": {
-      "rel": "first",
-      "href": "http://localhost:" + port + "/watch-definitions.drive?offset=0&max=10",
-      "title": "First"
-    },
-    "last": {
-      "rel": "last",
-      "href": "http://localhost:" + port + "/watch-definitions.drive?offset=70&max=10",
-      "title": "Last"
-    },
-    "create": {
-      "rel": "create",
-      "href": "http://localhost:" + port + "/watch-definitions/creation.drive",
-      "title": "Create"
-    },
-    "search": {
-      "rel": "search",
-      "href": "http://localhost:" + port + "/watch-definitions/search.drive",
-      "title": "Search",
-      "method": "POST",
-      "type": "application/json",
-      "$ref": "#/definitions/SearchWatchDefinition"
-    },
-    "self": {
-      "rel": "self",
-      "href": "http://localhost:" + port + "/watch-definitions.drive?offset=0&max=10"
-    }
-  },
+  "links": {},
   "data": {},
   "entities": {
     "watch-definitions": []
