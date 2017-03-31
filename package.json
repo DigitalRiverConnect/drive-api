@@ -1,7 +1,7 @@
 {
-  "name": "watch-service-backend-blueprint",
+  "name": "drive-api",
   "version": "1.0.0",
-  "description": "Backend service for blueprint project",
+  "description": "A blueprint backend application that provides drive hypermedia APIs",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
