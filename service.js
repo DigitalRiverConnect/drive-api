@@ -9,8 +9,12 @@ var schema = require('./resources/definition.schema')
 
 module.exports = {
   list: function(query) {
-    watchDefinitions = addLinks(watchDefinitions, query);
-    watchDefinitions.entities['watch-definitions'] = entities.slice(query.offset, +query.offset + +query.max);
+    var cloneEntities = entities.slice()
+    if ('search' in query) {
+      cloneEntities = search(cloneEntities, query.search);
+    }
+    watchDefinitions = addLinks(watchDefinitions, query, cloneEntities.length);
+    watchDefinitions.entities['watch-definitions'] = cloneEntities.slice(query.offset, +query.offset + +query.max);
     return watchDefinitions
   },
   get: function(name) {
@@ -74,14 +78,13 @@ var makeEntity = function(body) {
   return definition;
 }
 
-var addLinks = function(watchDefinitions, query) {
+var addLinks = function(watchDefinitions, query, total) {
   watchDefinitions.links = new Links().getListLink();
-  watchDefinitions = addPagination(watchDefinitions, query);
+  watchDefinitions = addPagination(watchDefinitions, query, total);
   return watchDefinitions;
 }
 
-var addPagination = function(watchDefinitions, query) {
-  var total = entities.length;
+var addPagination = function(watchDefinitions, query, total) {
   var pages = Math.ceil(total / query.max);
   var currentPage = (query.offset > 0) ? (query.offset / query.max) + 1 : 1;
   watchDefinitions.data = (new Pagination(total, pages, currentPage)).getPagination();
@@ -103,4 +106,13 @@ var makeDefinition = function(body) {
     data: body.definition,
     schema: schema
   };
+}
+
+var search = function(cloneEntities, search) {
+  var keyValPair = search.terms.split(":");
+  var key = keyValPair[0];
+  var val = keyValPair[1];
+  return cloneEntities.filter(function (entity) {
+    return entity.data[key].toLocaleLowerCase().indexOf(val.toLowerCase()) > -1;
+  });
 }
