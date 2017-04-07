@@ -8,7 +8,8 @@ function Links(title) {
     return {
       "item": {
         "rel": "item",
-        "href": `http://localhost:${port}/watch-definitions/${name}`
+        "href": `http://localhost:${port}/watch-definitions/${name}`,
+        "title": `${name}`
       },
       "delete": {
         "rel": "delete",

@@ -11,11 +11,9 @@ module.exports = {
   list: function(query) {
     var cloneEntities = entities.slice()
     if ('search' in query) {
-      cloneEntities = search(cloneEntities, query.search);
+      cloneEntities = filter(cloneEntities, searchByQueryString(query.search));
     }
-    watchDefinitions = addLinks(watchDefinitions, query, cloneEntities.length);
-    watchDefinitions.entities['watch-definitions'] = cloneEntities.slice(query.offset, +query.offset + +query.max);
-    return watchDefinitions
+    return getWatchDefinitions(cloneEntities, query)
   },
   get: function(name) {
     var definition = definitions[name];
@@ -29,7 +27,7 @@ module.exports = {
   },
   create: function(body) {
     var existDefinition = entities.filter(function (item) {
-      return item.title === body.definition.name
+      return item.links.item.title === body.definition.name
     })
 
     if (existDefinition.length === 0) {
@@ -43,7 +41,7 @@ module.exports = {
   },
   update: function(body) {
     var existDefinition = entities.filter(function (item) {
-      return item.title === body.definition.path
+      return item.links.item.title === body.definition.name
     })
 
     if (existDefinition.length === 1) {
@@ -57,8 +55,13 @@ module.exports = {
   },
   delete: function(name) {
     entities = entities.filter(function (item) {
-      return item.title !== name;
+      return item.links.item.title !== name;
     })
+  },
+  search: function(query) {
+    var cloneEntities = entities.slice()
+    cloneEntities = filter(cloneEntities, searchByPostBody(query.search));
+    return getWatchDefinitions(cloneEntities, query)
   }
 
 }
@@ -79,7 +82,7 @@ var makeEntity = function(body) {
 }
 
 var addLinks = function(watchDefinitions, query, total) {
-  watchDefinitions.links = new Links().getListLink();
+  watchDefinitions.links = new Links().getListLink(query.max);
   watchDefinitions = addPagination(watchDefinitions, query, total);
   return watchDefinitions;
 }
@@ -108,11 +111,24 @@ var makeDefinition = function(body) {
   };
 }
 
-var search = function(cloneEntities, search) {
-  var keyValPair = search.terms.split(":");
-  var key = keyValPair[0];
-  var val = keyValPair[1];
-  return cloneEntities.filter(function (entity) {
-    return entity.data[key].toLocaleLowerCase().indexOf(val.toLowerCase()) > -1;
-  });
+var filter = function(cloneEntities, fn) {
+  return cloneEntities.filter(fn);
+}
+
+var searchByPostBody = function(search) {
+  return function (entity) {
+    return entity.links.item.title.toLowerCase().indexOf(search.terms.name.toLowerCase()) > -1;
+  };
+}
+
+var searchByQueryString = function(search) {
+  return function (entity) {
+    return entity.links.item.title.toLowerCase().indexOf(search.terms.split(":")[1].toLowerCase()) > -1;
+  }
+}
+
+var getWatchDefinitions = function(cloneEntities, query) {
+  watchDefinitions = addLinks(watchDefinitions, query, cloneEntities.length);
+  watchDefinitions.entities['watch-definitions'] = cloneEntities.slice(query.offset, +query.offset + +query.max);
+  return watchDefinitions
 }
