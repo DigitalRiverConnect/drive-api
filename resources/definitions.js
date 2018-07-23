@@ -1,11 +1,11 @@
 var schema = require('./definition.schema')
 
 var definitions = {
-  'v1-bbod-availability': {
+  'service1-abcde-availability': {
     "links": {},
     "data": {
-      "name": "BBOD Availability Monitoring and Alerting",
-      "path": "v1-bbod-availability",
+      "name": "ABCDE Availability Monitoring and Alerting",
+      "path": "service1-abcde-availability",
       "trigger": "0 0/15 * * * *",
       "description": "determines the service availability within a time period",
       "active": true,
@@ -16,8 +16,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "BBOD Service Availability Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "ABCDE Service Availability Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -35,10 +35,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "183e4c1b72294c60ac2fcc5de3bc2bfd"
+              "testkey-AbcDEfTGI1730430132874"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -57,11 +57,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-bbod-decrease-traffic-sprike': {
+  'service1-abcde-decrease-traffic-sprike': {
     "links": {},
     "data": {
-      "name": "BBOD Decrease Traffic Spike",
-      "path": "v1-bbod-decrease-traffic-sprike",
+      "name": "ABCDE Decrease Traffic Spike",
+      "path": "service1-abcde-decrease-traffic-sprike",
       "trigger": "0 0/15 * * * *",
       "description": "determines the decrease in traffic between two time periods",
       "active": true,
@@ -72,8 +72,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "BBOD Decrease Traffic Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "ABCDE Decrease Traffic Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -91,10 +91,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "183e4c1b72294c60ac2fcc5de3bc2bfd"
+              "testkey-AbcDEfTGI1730430132874"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -113,11 +113,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-ciscoctg-availability': {
+  'service1-chocolate-availability': {
     "links": {},
     "data": {
-      "name": "CISCOCTG Availability Monitoring and Alerting",
-      "path": "v1-ciscoctg-availability",
+      "name": "CHOCOLATE Availability Monitoring and Alerting",
+      "path": "service1-chocolate-availability",
       "trigger": "0 0/15 * * * *",
       "description": "determines the service availability within a time period",
       "active": true,
@@ -128,8 +128,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "CISCOCTG Service Availability Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "CHOCOLATE Service Availability Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -147,10 +147,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "235104cf93754fa0b4b4c7983693842f"
+              "testkey-1343KBIEJW2355abedaDef"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -168,11 +168,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-ciscoctg-decrease-traffic-sprike': {
+  'service1-chocolate-decrease-traffic-sprike': {
     "links": {},
     "data": {
-      "name": "CISCOCTG Decrease Traffic Spike",
-      "path": "v1-ciscoctg-decrease-traffic-sprike",
+      "name": "CHOCOLATE Decrease Traffic Spike",
+      "path": "service1-chocolate-decrease-traffic-sprike",
       "trigger": "0 0/15 * * * *",
       "description": "determines the decrease in traffic between two time periods",
       "active": true,
@@ -183,8 +183,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "CISCOCTG Decrease Traffic Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "CHOCOLATE Decrease Traffic Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -202,10 +202,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "235104cf93754fa0b4b4c7983693842f"
+              "testkey-1343KBIEJW2355abedaDef"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -224,13 +224,13 @@ var definitions = {
     },
     "schema": schema
   },
-  'dispatch-errors-watch': {
+  'doughnut-errors-watch': {
     "links": {},
     "data": {
-      "name": "Dispatch Errors Watch.",
-      "path": "dispatch-errors-watch",
+      "name": "DOUGHNUT Errors Watch.",
+      "path": "doughnut-errors-watch",
       "trigger": "0 0/5 * * * *",
-      "description": "Finds errors that originated in Dispatch.",
+      "description": "Finds errors that originated in Doughnut.",
       "active": true,
       "policyDefinition": {
         "alertDefinitions": [
@@ -239,8 +239,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "Dispatch Alert - Dispatch Errors Found",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com"
+                "subject": "Doughnut Alert - Doughnut Errors Found",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -263,7 +263,7 @@ var definitions = {
             "documentTypes": [],
             "properties": {
               "responseStatus": "500, 502",
-              "responseSource": "dispatch, DISPATCH"
+              "responseSource": "doughnut, DOUGHNUT"
             }
           }
         },
@@ -277,11 +277,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'dispatch-hosts-watch': {
+  'doughnut-hosts-watch': {
     "links": {},
     "data": {
-      "name": "Dispatch Hosts Watch",
-      "path": "dispatch-hosts-watch",
+      "name": "Doughnut Hosts Watch",
+      "path": "doughnut-hosts-watch",
       "trigger": "0 0/5 * * * *",
       "description": "Watches the number of hosts being reported by elastic search.",
       "active": true,
@@ -292,14 +292,14 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "Missing Dispatch Hosts",
+                "subject": "Missing Doughnut Hosts",
                 "timeZone": "America/Chicago",
-                "to": "drconnectalerts@digitalriver.com"
+                "to": "user1@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
             },
-            "alertTemplate": "missing_dispatch_hosts"
+            "alertTemplate": "missing_doughnut_hosts"
           }
         ],
         "queryDefinition": {
@@ -330,11 +330,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-electrol-availability': {
+  'service1-custardtart-availability': {
     "links": {},
     "data": {
-      "name": "ELECTROL Availability Monitoring and Alerting",
-      "path": "v1-electrol-availability",
+      "name": "CUSTARDTART Availability Monitoring and Alerting",
+      "path": "service1-custardtart-availability",
       "trigger": "0 0/15 * * * *",
       "description": "determines the service availability within a time period",
       "active": true,
@@ -345,8 +345,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "ELECTROL Service Availability Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "CUSTARDTART Service Availability Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -364,10 +364,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "x7vQOMYuj1sZ6zeTNFeqL83qadqFT0Zm"
+              "testkey-XGwewef40298IELSLIGe32"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -385,11 +385,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-electrol-decrease-traffic-sprike': {
+  'service1-custardtart-decrease-traffic-sprike': {
     "links": {},
     "data": {
-      "name": "ELECTROL Decrease Traffic Spike",
-      "path": "v1-electrol-decrease-traffic-sprike",
+      "name": "CUSTARDTART Decrease Traffic Spike",
+      "path": "service1-custardtart-decrease-traffic-sprike",
       "trigger": "0 0/15 * * * *",
       "description": "determines the decrease in traffic between two time periods",
       "active": true,
@@ -400,8 +400,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "ELECTROL Decrease Traffic Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "CUSTARDTART Decrease Traffic Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -419,10 +419,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "x7vQOMYuj1sZ6zeTNFeqL83qadqFT0Zm"
+              "testkey-XGwewef40298IELSLIGe32"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -441,11 +441,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-furlaeu-availability': {
+  'service1-frenchfries-availability': {
     "links": {},
     "data": {
-      "name": "FURLAEU Availability Monitoring and Alerting",
-      "path": "v1-furlaeu-availability",
+      "name": "FRENCHFRIES Availability Monitoring and Alerting",
+      "path": "service1-frenchfries-availability",
       "trigger": "0 0/15 * * * *",
       "description": "determines the service availability within a time period",
       "active": true,
@@ -456,8 +456,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "FURLAEU Service Availability Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "FRENCHFRIES Service Availability Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -475,10 +475,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "fe1a806e420a45179b88e3689ca63446"
+              "testkey-fe1ABDewe3234Jioqqej33"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -496,11 +496,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-furlaeu-decrease-traffic-sprike': {
+  'service1-frenchfries-decrease-traffic-sprike': {
     "links": {},
     "data": {
-      "name": "FURLAEU Decrease Traffic Spike",
-      "path": "v1-furlaeu-decrease-traffic-sprike",
+      "name": "FRENCHFRIES Decrease Traffic Spike",
+      "path": "service1-frenchfires-decrease-traffic-sprike",
       "trigger": "0 0/15 * * * *",
       "description": "determines the decrease in traffic between two time periods",
       "active": true,
@@ -511,8 +511,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "FURLAEU Decrease Traffic Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "FRENCHFRIES Decrease Traffic Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -530,10 +530,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "fe1a806e420a45179b88e3689ca63446"
+              "testkey-fe1ABDewe3234Jioqqej33"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -552,11 +552,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-furlajp-availability': {
+  'service1-firedrice-availability': {
     "links": {},
     "data": {
-      "name": "FURLAJP Availability Monitoring and Alerting",
-      "path": "v1-furlajp-availability",
+      "name": "FRIEDRICE Availability Monitoring and Alerting",
+      "path": "service1-firedrice-availability",
       "trigger": "0 0/15 * * * *",
       "description": "determines the service availability within a time period",
       "active": true,
@@ -567,8 +567,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "FURLAJP Service Availability Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "FRIEDRICE Service Availability Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -586,10 +586,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "e476082cf7af49b1b817e34c91d3486e"
+              "testkey-EI4716nfjdiDe93Lo9d3es"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
@@ -607,11 +607,11 @@ var definitions = {
     },
     "schema": schema
   },
-  'v1-furlajp-decrease-traffic-sprike': {
+  'service1-firedrice-decrease-traffic-sprike': {
     "links": {},
     "data": {
-      "name": "FURLAJP Decrease Traffic Spike",
-      "path": "v1-furlajp-decrease-traffic-sprike",
+      "name": "FRIEDRICE Decrease Traffic Spike",
+      "path": "service1-firedrice-decrease-traffic-sprike",
       "trigger": "0 0/15 * * * *",
       "description": "determines the decrease in traffic between two time periods",
       "active": true,
@@ -622,8 +622,8 @@ var definitions = {
               "alertText": null,
               "alertType": {
                 "type": "EMAIL",
-                "subject": "FURLAJP Decrease Traffic Alert",
-                "to": "amazon@digitalriver.com,JSwanson@DigitalRiver.com,kkester@digitalriver.com"
+                "subject": "FRIEDRICE Decrease Traffic Alert",
+                "to": "user1@digitalriver.com,user2@DigitalRiver.com,user3@digitalriver.com"
               },
               "firingPolicy": "ONCE_WITH_FOLLOW_UP",
               "active": true
@@ -641,10 +641,10 @@ var definitions = {
               "to": "now"
             },
             "apiKeys": [
-              "e476082cf7af49b1b817e34c91d3486e"
+              "testkey-EI4716nfjdiDe93Lo9d3es"
             ],
             "serviceIds": [
-              "v1"
+              "service1"
             ],
             "clusters": [],
             "documentTypes": [],
